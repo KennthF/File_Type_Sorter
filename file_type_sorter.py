@@ -1,4 +1,7 @@
 import os
+from pathlib import Path
+
+download_dir = str(os.path.join(Path.home(), "Downloads"))
 
 def create_path():
     ''' creates paths for different type of file '''
@@ -12,7 +15,15 @@ def create_path():
     #We can try reading the folder first if it exist or not
     try:
         for i in file_type.values():
-            os.mkdir("C:\\Users\\School Account\\Downloads\\"+ "" + i)
+            os.mkdir(download_dir + "\\" + i)
     except:
         print("folder already exist")
+
+def files_sort():
+    for files in os.listdir(download_dir):
+        print(f"File Name: {files}")
+
 create_path()
+
+
+
